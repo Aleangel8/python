@@ -7,7 +7,7 @@
 #  
 #   
 #      
-#       
+#       Falta con el for y validar datos
 #########################################################################################
 
 Numero=input("Introduzca un numero: ")
