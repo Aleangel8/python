@@ -9,9 +9,32 @@
 #      
 #       Falta con el for y validar datos
 #########################################################################################
+volver=1
+while(volver==1):
+    while(volver==1):
+        try:
+            Numero = int(input("Introduzca un numero: "))
+        except:
+            print("Datos Incorrectos")
+            volver=1
+        else:
+            volver=0
 
-Numero=input("Introduzca un numero: ")
-c=0
-while(c<=10):
-    print(int(Numero)*c)
-    c +=1
+    c=0
+    while(c<=10):
+        print(int(Numero)*c)
+        c +=1
+
+
+#   Check volver a intentar y validar entrada
+    volver2=1
+    while(volver2==1):   
+        try:
+            volver=(input("Pulse 0 para Salir, Cualquier otro numero volver a intentar : "))
+            if(int(volver)!=0):
+                volver=1   
+        except ValueError:
+            print("No se introdujo un numero")
+            volver2=1
+        else:
+            volver2=0
