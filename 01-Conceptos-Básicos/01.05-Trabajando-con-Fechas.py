@@ -1,3 +1,15 @@
+########################################################################################
+#  FECHAS
+########################################################################################
+#
+#  
+#  
+#
+#   
+#      
+#       
+#########################################################################################
+
 from datetime import datetime
 import time
 
@@ -34,4 +46,4 @@ dt3 = datetime.strptime(strFecha, "%d-%m-%Y").date()
 
 print(f"Fecha de nacimiento: {dt3}")
 print("Fecha de Nacimiento:", dt3.strftime("%A, %d of %B, %Y"))
-print(dt2.year-dt3.year1)
+print(dt2.year-dt3.year)
