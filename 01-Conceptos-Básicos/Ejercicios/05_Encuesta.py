@@ -27,9 +27,8 @@ while(volver==1):
             nombre=input("Introduzca su nombre: ")
             edad=int(input("Introduzca su edad: "))
             opinion=int(input("Introduzca su opinion del 0-10: "))
-            """if(opinion>10):
-                print("Opinion Fuera de rango")
-                volver=1  """  
+            if(opinion>10):
+                raise ValueError    
         except ValueError:
             print("Datos Incorrectos")
             volver=1
