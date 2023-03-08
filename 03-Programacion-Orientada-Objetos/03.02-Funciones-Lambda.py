@@ -17,8 +17,9 @@ def Restar(num):
 def Multiplicar(num):
     return lambda a : a * num
 
-#multiplicar = lamda a : a * num
-#nombvariable =lamda parametros  : Formula
+#multiplicar = lambda a : a * num
+#nombfuncion =lambda parametros  : Formula
+# la llamada es igual-> nombfuncion(parametros)
 def Dividir(num):
     return lambda a : a / num
 
