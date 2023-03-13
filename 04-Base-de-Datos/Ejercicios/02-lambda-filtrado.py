@@ -20,6 +20,8 @@ collection = db.Products
 # Con un identificador de pedido
 # Listar dato---> ShipName, ShipAddress, ShipCity, ShipCountry, OrderDate, ShipDate
 # Mostramos el detalle del pedido --> Producto, Cantidad, Precio Total, Total Pedido
+
+# Alinea los caracteres para la presentacion
 texto="Ejemplo"
 print(f"{'Producto':30} {texto:>10}")
 
