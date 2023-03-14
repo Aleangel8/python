@@ -78,15 +78,25 @@ cursor = collection.find()
 total_value=0
 while(cursor.alive):
     target=cursor.next()
-    print(f"Stock Value de {target['ProductName']:35}:{float(target['UnitsInStock'])*float(target['UnitPrice'])}€")
+    mul=(float(target['UnitsInStock'])*float(target['UnitPrice']))
+    print(f"Stock Value de {target['ProductName']:35}: {mul:.2f} €")
     total_value+=float(target['UnitsInStock'])*float(target['UnitPrice'])
-print(f"\nValor total de Stock: {total_value}")
+print(f"\nValor total de Stock: {total_value:.2f}")
 
 # Con un FOR y otra formula es realizarlo con MAP() SUM
-
+print("\n(Con map y sum) Valor total de Stock:")
+products2=list(collection.find())
+mul_value= list(map(lambda x: float(x['UnitsInStock'])*float(x['UnitPrice']),products2))
+print(sum(mul_value))
+"""
+suma=0
+for i in mul_value:
+    suma+=i
+print(f"{suma:2f}")  
+"""
 
 #(avanzado) Con una funcion AGGREGATE de mongoDB y los operadores $sum y $multiply
-print(f"\n(Con AGGREGATE)Valor total de Stock: ")
+print(f"\n(Con AGGREGATE) Valor total de Stock: ")
 query= [
     {"$match":{"UnitsInStock": {"$ne":"0"}}},
     {"$addFields":{

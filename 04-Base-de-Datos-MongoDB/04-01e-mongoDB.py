@@ -31,3 +31,8 @@ print(result.matched_count,"documentos encontrados")
 print(result.modified_count, "documentos modificados")
 print(result)
 pprint(collection.find_one(query))
+
+
+result = collection.delete_many({"CustomerID": {"$regex": "DEMO"}})
+print(f"{result.deleted_count} documentos eliminados")
+print(f"{collection.count_documents({'CustomerID': {'$regex': 'DEMO'}})} clientes DEMO")
