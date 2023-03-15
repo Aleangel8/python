@@ -1,18 +1,36 @@
 ########################################################################################
-#  Ejercicio 1A
+#  Ejercicio 4A
 ########################################################################################
-"""  Escribe una función para calcular el consumo medio de combustible de un vehículo.
+"""  Escribe una función que cuente las vocales de una frase.
 
 Entrada de datos:
-    -Kilometros recorridos
-    -Listros de combustible consumidos
+
+Una frase
 Salida de datos:
-    -litros consumidos por kilometro
+
+Número de vocales desglosado
 """
 #########################################################################################
 #Con funcion
-"""def consumo(Km, Litros):
-    return Litros/Km"""
+def vocal(frase):
+    ca=0
+    ce=0
+    ci=0
+    co=0
+    cu=0
+    deletrear=list(frase)
+    for i in deletrear:
+        if(i=='a'):
+            ca+=1
+        elif(i=='e'):
+            ce+=1            
+        elif(i=='i'):
+            ci+=1
+        elif(i=='o'):
+            co+=1
+        elif(i=='u'):
+            cu+=1 
+    return ca, ce , ci, co, cu   
 
 
 
@@ -22,14 +40,9 @@ while(volver==1):
     while(volver==1):
         try:
             print("Bienvenido")
-            km=float(input("Introduzca cant de Km: "))
-            litros=float(input("Introduzca el consumo en Litros: ")) 
-# Procesar Datos
-            consumo=lambda km,litros:litros/km
-            print(f"Usted consume {consumo(km,litros)} Litros por KM") 
-        except ZeroDivisionError:
-            print("Consumo 0 es imposible")
-            volver=1    
+            frase=(input("Introduzca una frase: ")).lower()
+            cvocal=vocal(frase)
+            print(f"A: {cvocal[0]} \nE: {cvocal[1]} \nI: {cvocal[2]} \nO: {cvocal[3]} \nU: {cvocal[4]}")             
         except ValueError:
             print("Datos Incorrectos")
             volver=1

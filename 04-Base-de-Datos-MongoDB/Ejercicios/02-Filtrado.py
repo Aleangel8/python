@@ -42,6 +42,7 @@ client= MongoClient("mongodb://127.0.0.1:27017")
 db= client.Northwind
 collection = db.Products
 collection2= db.Orders
+collection3= db.Order_Details
 
 
 #Imprime la cantidad de Productos
@@ -115,9 +116,32 @@ cursor = db.Products.aggregate(query)
 print(cursor.next())
 
 # Con un identificador de pedido
-    #ID_pedido= input("Introdusca el Id del pedido: ")
-# Listar dato---> ShipName, ShipAddress, ShipCity, ShipCountry, OrderDate, ShipDate
-    #print(collection2.find_one({'OrderId': '10248'})['ShipName'])
+# Listar dato---> ShipName, ShipAddress, ShipCity, ShipCountry, OrderDate
+print(f"\n Ordenes por Identificador: ")
+
+ID_pedido= input("Introdusca el Id del pedido: ")
+cursor = collection2.find()
+while(cursor.alive):
+    orders=cursor.next()
+    if(orders['OrderID']==ID_pedido):
+        print(f"ShipName: {orders['ShipName']}")
+        print(f"ShipAddress: {orders['ShipAddress']}")
+        print(f"ShipCity: {orders['ShipCity']}")
+        print(f"ShipCountry: {orders['ShipCountry']}")
+        print(f"OrderDate: {orders['OrderDate']}")
+    
+
+
+# Con un identificador de pedido
 # Mostramos el detalle del pedido --> Producto, Cantidad, Precio Total, Total Pedido
+print(f"\n Detalles de ordenes por Identificador: ")
 
-
+cursor = collection3.find()
+while(cursor.alive):
+    details=cursor.next()
+    if(details['OrderID']==ID_pedido):
+        print(f"ProductID: {details['ProductID']}")
+        print(f"UnitPrice: {details['UnitPrice']}")
+        print(f"Quantity: {details['Quantity']}")
+        print(f"Discount: {details['Discount']}")
+ 
