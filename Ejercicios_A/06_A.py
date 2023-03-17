@@ -21,7 +21,6 @@ ingredientes = { "Base": 8.90, "Pepperoni": 0.50,
 """
 #########################################################################################
 import random
-def cal_order(order):pass
 
 list_ing=["ba", "pe", "po", "ca", "pi", "ce", "ch", "ac", "pi", "ex"]
 ingredientes = {"ba": 8.90, "pe": 0.50,
