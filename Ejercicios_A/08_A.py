@@ -14,25 +14,10 @@ Introduce 6 número distintos entre 1 y 49
 Salida de datos:
 Número de aciertos
 
-********************************************
-El código parece estar bien estructurado y cumple con su objetivo de simular un juego de la lotería Primitiva. Algunas sugerencias que podría hacer para mejorarlo serían las siguientes:
-
-Añadir un mensaje al usuario al inicio del programa para explicarle cómo funciona el juego y las reglas básicas.
-
-Añadir una verificación adicional en la función "pedir_num()" para asegurarse de que el usuario solo ingrese números del 1 al 49 y no otros caracteres o números fuera de rango.
-
-En lugar de imprimir la lista completa de números sorteados, podría imprimir los números uno por uno con un pequeño retraso (por ejemplo, 1 segundo) para crear un poco más de emoción y dramatismo en el juego.
-
-En general, el código parece estar bien escrito y organizado, y los nombres de las variables son descriptivos y fáciles de entender. ¡Buen trabajo!
-
-
-
-
-
 """
 
 #########################################################################################
-import random
+import random, time
 
 def generar_primitiva():
     primitiva=[]
@@ -49,15 +34,22 @@ def generar_primitiva():
 
 def pedir_num():
     boleto=[]
-    boleto.append(int(input("Digame un numero del 1 al 49 sin repetir: ")))
+    volver4=1
+    while(volver4==1):
+        num=int(input("Digame un numero del 1 al 49 sin repetir: "))
+        if(num>=50):
+            print("Fuera de rango")
+        if(num<50):
+            boleto.append(int(input("Digame un numero del 1 al 49 sin repetir: ")))
+            volver4=0
     c=0
     while(c<5):
         num_sgte=int(input("Digame un numero del 1 al 49 sin repetir: "))
-        if(num_sgte not in boleto):
+        if(num_sgte not in boleto and num_sgte<50):
             boleto.append(num_sgte)
             c+=1
         else:
-            print("Numero repetido")
+            print("Numero repetido o fuera de rango")
                    
     return boleto
 
@@ -77,7 +69,9 @@ while(volver==1):
            boleto=pedir_num()
            print(f"\nTu boleto es : {boleto}")
            aciertos = set(primitiva).intersection(boleto)
-           print(f"Has tenido {len(aciertos)} aciertos en :\n {aciertos}")
+           print("Has tenido ...")
+           time.sleep(3)
+           print(f"{len(aciertos)} aciertos en :\n {aciertos}")
 
         except ValueError:
             print("No se Introdujoun valor numérico")
