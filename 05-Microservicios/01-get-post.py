@@ -4,12 +4,12 @@ import requests, pprint
 url="http://api.open-notify.org/iss-now.json"
 
 # Utilizamos la funcion get() para realizar una llamada GET
-# La funcion ge( retorna una respuesta
+# La funcion get retorna una respuesta
 response= requests.get(url)
 
-# Mostrar el codigo de estado HTTP
+# Mostrar el codigo de estado HTTP (200)
 print(f"\nCodigo de estado: ", response.status_code)
-# Mostrar el codigo de estado HTTP en modo texto utilizando REASON
+# Mostrar el codigo de estado HTTP en modo texto utilizando REASON (OK)
 print(f"\nEstado: ", response.reason)
 
 if(response.status_code == 200):

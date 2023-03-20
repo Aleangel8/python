@@ -1,22 +1,26 @@
 import requests, pprint
 
 
-url= f"https://api.apilayer.com/exchangerates_data/convert"
+url= "https://api.apilayer.com/exchangerates_data/convert" #?to=USD&from=EUR
 
-#num=input("Introduzca cantidad")
+num=input("Introduzca cantidad: ")
 
 
-#?to=USD&from=EUR
+
 #############  Plantilla
-headers={"to": "USD","from": "EUR", "amount":"90", "apikey": "WqVzJ6pWHbPkkil5ya8tzBYyBM2fKj1z"}
+headers={"to": "USD","from": "EUR", "amount":num, "apikey": "WqVzJ6pWHbPkkil5ya8tzBYyBM2fKj1z"}
 
 
 try:
-    response = requests.get(url, headers=headers)
+    response = requests.get(url,headers)
     if(response.status_code == 200):
         data = response.json()
         print(data)
-        #Enviar datos como cabecera
+        print(data['success'])
+        print(data['query'])
+        print(data['query']['from'])
+        print(data['date'])
+        print(data['result'])
         
 
     else:
@@ -29,33 +33,6 @@ except Exception as err:
 
 
 
-
-
-
-
-
-exit()
-url = f"https://api.apilayer.com/exchangerates_data/symbols"
-
-
-#############  Plantilla
-headers = {"apikey": "WqVzJ6pWHbPkkil5ya8tzBYyBM2fKj1z"}
-
-try:
-    response = requests.get(url, headers=headers)
-    if (response.status_code == 200):
-        data = response.json()
-        print(data)
-        #Enviar datos como cabecera
-        
-
-    else:
-        print(f"Error:", response.reason)
-
-except Exception as err:
-    print(f"Error: {err}")
-
-#############  Plantilla
 
 
 
