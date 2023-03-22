@@ -6,8 +6,6 @@ url= "https://api.apilayer.com/exchangerates_data/convert" #?to=USD&from=EUR
 num=input("Introduzca cantidad: ")
 
 
-
-#############  Plantilla
 headers={"to": "USD","from": "EUR", "amount":num, "apikey": "WqVzJ6pWHbPkkil5ya8tzBYyBM2fKj1z"}
 
 
@@ -29,7 +27,7 @@ try:
 except Exception as err:
     print(f"Error: {err}")
 
-#############  Plantilla
+
 
 
 

@@ -19,6 +19,7 @@ def vocal(frase):
     co=0
     cu=0
     deletrear=list(frase)
+# Se podia usar la funcion count: frase.count(a)
     for i in deletrear:
         if(i=='a'):
             ca+=1
