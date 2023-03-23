@@ -23,8 +23,6 @@ De 35.200 € a 60.000 €, el tipo impositivo es de 37%.
 De 60.000 € a 300.000 €, el tipo impositivo es de 45%.
 """
 #########################################################################################
-earnings= []
-payments_made= []
 
 def Calc(earnings,payments_made):
     Total_earnings=sum(earnings)
@@ -41,29 +39,32 @@ def Calc(earnings,payments_made):
         T2= (Total_earnings-12450)*0.24
     if(20200<=Total_earnings<35200):
         T1= 12450*0.19
-        T2= 20200*0.24
+        T2= (20200-12450)*0.24
         T3= (Total_earnings-20200)*0.30
     if(35200<=Total_earnings<60000):
         T1= 12450*0.19
-        T2= 20200*0.24
-        T3= 35200*0.30
+        T2= (20200-12450)*0.24
+        T3= (35200-20200)*0.30
         T4= (Total_earnings-35200)*0.37
     if(60000<=Total_earnings<300000):
         T1= 12450*0.19
-        T2= 20200*0.24
-        T3= 35200*0.30
-        T4= 60000*0.37
+        T2= (20200-12450)*0.24
+        T3= (35200-20200)*0.30
+        T4= (60000-35200)*0.37
         T5= (Total_earnings-60000)*0.45
     
-    print(f"Total Ganado: {Total_earnings}€")
-    print(f"Total a Pagar: {T1+T2+T3+T4+T5}")
-    print(f"Total Pagado: {Total_payment_made}€")
-    print(f"Diferencia: {Total_payment_made-(T1+T2+T3+T4+T5)}")
-    print(f"Ganancias netas: {Total_earnings-(T1+T2+T3+T4+T5)}")
+    print(f"Total Ganado: {Total_earnings:.2f}€")
+    print(f"Total a Pagar: {(T1+T2+T3+T4+T5):.2f}€")
+    print(f"Total Pagado: {Total_payment_made:.2f}€")
+    print(f"Tramos: T1-{T1:.2f}€, T2-{T2:.2f}€, T3-{T3:.2f}€, T4-{T4:.2f}€, T5-{T5:.2f}€")
+    print(f"Diferencia: {Total_payment_made-(T1+T2+T3+T4+T5):.2f}€")
+    print(f"Ganancias netas: {(Total_earnings-(T1+T2+T3+T4+T5)):.2f}€")
 
 # Toma de datos
 volver=1
 while(volver==1):
+    earnings= []
+    payments_made= []
     volver3=1
     while(volver3==1):
         try:
